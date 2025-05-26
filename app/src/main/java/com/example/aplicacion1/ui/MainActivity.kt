@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -52,6 +53,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupListener() {
         imageViewModel.imageLiveData.observe(this) { bitmap ->
             saveImageToLocal(bitmap)
+            binding.imageView.setImageBitmap(bitmap)
+        }
+        imageViewModel.getLoading().observe(this) { loading: Boolean ->
+            binding.loadingView.root.visibility = if (loading) View.VISIBLE else View.GONE
         }
     }
 
@@ -68,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             uri?.let { selectedUri ->
                 selectedImageFile = uriToFile(selectedUri)
                 selectedImageFile?.let { file ->
-                    imageViewModel.uploadImage(file)
+                    imageViewModel.uploadImage(file, this)
                 }
             } ?: run {
                 Toast.makeText(this, "No se seleccionó ninguna imagen", Toast.LENGTH_SHORT).show()
@@ -119,6 +124,7 @@ class MainActivity : AppCompatActivity() {
             bitmap?.compress(Bitmap.CompressFormat.PNG, 100, output)
         }
 
+        imageViewModel.getLoading().postValue(false)
         downloadedImageFile = file
         Toast.makeText(this, "Imagen guardada en: ${file.absolutePath}", Toast.LENGTH_LONG).show()
     }

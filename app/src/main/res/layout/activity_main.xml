@@ -9,6 +9,13 @@
     android:background="@color/light_gray"
     tools:context=".ui.MainActivity">
 
+    <include
+        android:id="@+id/loadingView"
+        layout="@layout/layout_loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
     <TextView
         android:id="@+id/textViewTitle"
         style="@style/Text.Manrope.HeadlineMedium"
