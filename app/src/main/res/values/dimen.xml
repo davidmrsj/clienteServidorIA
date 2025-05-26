@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="topApp">40dp</dimen>
+    <dimen name="size4dp">4dp</dimen>
+    <dimen name="size8dp">8dp</dimen>
+    <dimen name="size16dp">16dp</dimen>
+    <dimen name="size12dp">12dp</dimen>
+    <dimen name="size32dp">32dp</dimen>
+
+</resources>

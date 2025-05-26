@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Aplicacion1" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/manrope_medium</item>
+    </style>
+
+    <style name="Theme.Aplicacion1" parent="Base.Theme.Aplicacion1" />
+</resources>
