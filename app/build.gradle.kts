@@ -68,7 +68,15 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
-    implementation(libs.okhttp)
+
+    // ExoPlayer (Media3)
+    implementation(libs.androidx.media3.common)
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+
+    // Glide
+    implementation(libs.bumptech.glide.glide)
+    kapt(libs.bumptech.glide.compiler)
 
     // Testing
     testImplementation(libs.junit)
